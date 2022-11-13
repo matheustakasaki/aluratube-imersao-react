@@ -1,0 +1,22 @@
+{
+    "name": "Matheus Takasaki",
+    "job": "Front-end Developer",
+    "github": "matheustakasaki",
+    
+    "playlists": {
+        "jogos":[
+            {
+                "title": "Algum titulo",
+                "url": "url",
+                "thumbnail": "Thummbnail do video"
+            }
+        ],
+        "front-end":[
+            {
+                "title": "Algum titulo",
+                "url": "url",
+                "thumbnail": "Thummbnail do video"
+            }
+        ]
+    }
+}
