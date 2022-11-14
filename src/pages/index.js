@@ -1,8 +1,8 @@
-import config from "../config.json";
+import config from "../../config.json";
 import styled from "styled-components";
-import { CSSReset } from "../src/components/CSSReset";
-import Menu from "../src/components/Menu";
-import { StyledTimeline } from '../src/components/Timeline'
+import { CSSReset } from "../components/CSSReset";
+import Menu from "../components/Menu";
+import { StyledTimeline } from '../components/Timeline'
 function HomePage() {
   const stylesHome = {
     // backgroundColor: "red" 
@@ -69,7 +69,7 @@ function Timeline(props) {
         return (
           <section>
             <h2>{playlistName}</h2>
-            <div>
+            <div key={playlistName.title}>
               {videos.map((video) => {
                 return (
                   <a href={video.url}>
