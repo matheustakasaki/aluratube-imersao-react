@@ -1,25 +1,29 @@
 import config from "../config.json";
 import styled from "styled-components";
-
+import { CSSReset } from "../src/components/CSSReset";
+import Menu from "../src/components/Menu";
+import { StyledTimeline } from '../src/components/Timeline'
 function HomePage() {
-  const stylesHome = { backgroundColor: "red" };
-
-  console.log(config.playlists);
+  const stylesHome = {
+    // backgroundColor: "red" 
+  };
 
   return (
-    <div style={stylesHome}>
-      <Header />
-      <Menu />
-      <Timeline playlists={config.playlists}></Timeline>
-    </div>
+
+    <>
+      <CSSReset />
+      <div style={stylesHome}>
+        <Menu />
+        <Header />
+        <Timeline playlists={config.playlists}></Timeline>
+      </div>
+    </>
+
   );
 }
 
 export default HomePage;
 
-function Menu() {
-  return <div>Menu</div>;
-}
 
 const StyledHeader = styled.div`
   img {
@@ -47,7 +51,7 @@ function Header() {
         <div>
           <h2>{config.name}</h2>
 
-          <p>{config.job}</p>
+          <p>{config.description}</p>
         </div>
       </section>
     </StyledHeader>
@@ -55,10 +59,11 @@ function Header() {
 }
 
 function Timeline(props) {
-  console.log("Dentro do componente", props);
+
   const playlistNames = Object.keys(props.playlists);
+
   return (
-    <div>
+    <StyledTimeline>
       {playlistNames.map((playlistName) => {
         const videos = props.playlists[playlistName];
         return (
@@ -68,7 +73,7 @@ function Timeline(props) {
               {videos.map((video) => {
                 return (
                   <a href={video.url}>
-                    <img src={video.thumbnail} />
+                    <img src={video.thumb} />
                     <span>{video.title}</span>
                   </a>
                 );
@@ -77,6 +82,6 @@ function Timeline(props) {
           </section>
         );
       })}
-    </div>
+    </StyledTimeline>
   );
 }
